@@ -1,16 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import { FormControl, InputLabel, Select, MenuItem } from "@material-ui/core";
 
-export const WordCountSettings = () => {
-  const [numberOfWords, seNumberOfWords] = useState(5);
+export const WordCountSettings = ({ numberOfWords, updateWordCount }) => {
   return (
-    <FormControl component="fieldset">
+    <FormControl>
       <InputLabel id="wordCount label"> Select Number of Words</InputLabel>
       <Select
         labelId="wordCount label"
         id="wordCount select"
         value={numberOfWords}
-        onChange={(e) => seNumberOfWords(e.target.value)}
+        onChange={updateWordCount}
       >
         <MenuItem value={5}>5</MenuItem>
         <MenuItem value={10}>10</MenuItem>

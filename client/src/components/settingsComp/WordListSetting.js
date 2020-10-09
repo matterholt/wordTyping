@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Radio,
   RadioGroup,
@@ -7,11 +7,16 @@ import {
   FormLabel,
 } from "@material-ui/core";
 
-export const WordListSetting = () => {
+export const WordListSetting = ({ wordList, updateWordList }) => {
   return (
     <FormControl component="fieldset" color="primary">
-      <FormLabel component="legend"> Word List </FormLabel>
-      <RadioGroup>
+      <FormLabel component="legend">Select Word List </FormLabel>
+      <RadioGroup
+        name="wordList"
+        aria
+        value={wordList}
+        onChange={updateWordList}
+      >
         <FormControlLabel
           value="Random"
           control={<Radio color="default" />}
@@ -21,6 +26,11 @@ export const WordListSetting = () => {
           value="Custom"
           control={<Radio color="default" />}
           label="Custom"
+        />
+        <FormControlLabel
+          value="import"
+          control={<Radio color="default" disabled />}
+          label="Import List"
         />
       </RadioGroup>
     </FormControl>
