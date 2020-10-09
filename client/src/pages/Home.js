@@ -1,22 +1,24 @@
 import React, { useState } from "react";
-import Button from "@material-ui/core/Button";
-import Typography from "@material-ui/core/Typography";
+import { Button, ButtonGroup } from "@material-ui/core";
+import { Typography, Grid, Paper } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
 import Header from "../components/Header";
 import SettingModal from "../components/SettingModal";
 
-import { useRandomWordList } from "../hooks/useRandomWordList";
+import { useWordList } from "../hooks/useWordList";
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    height: "100vh",
+  },
+}));
 
 export const Home = () => {
-  const [numberOfWords, seNumberOfWords] = useState(5);
+  const classes = useStyles();
 
   const [open, setOpen] = React.useState(false);
-
-  const { wordsToType, GetCustomWordList } = useRandomWordList();
-  function GetRandomWordList() {
-    // fetches randoms word from some api
-  }
+  const { wordsToType, GetCustomWordList } = useWordList();
 
   /*
   model for settings which contains a custom word or random words
@@ -30,22 +32,30 @@ export const Home = () => {
     setOpen(false);
   }
   return (
-    <div>
+    <Grid
+      className={classes.root}
+      container
+      direction="column"
+      justify="space-evenly"
+      alignItems="center"
+    >
       <Header />
-      <Typography variant="body1">Start Learning how to type words</Typography>
+      <ButtonGroup>
+        <Button type="button" onClick={handleOpen}>
+          Setting
+        </Button>
+        <Button type="button" onClick={handleOpen}>
+          Setting
+        </Button>
+      </ButtonGroup>
 
-      <button type="button" onClick={handleOpen}>
-        Open Modal
-      </button>
+      <Typography variant="body1">Start Learning how to type words</Typography>
 
       <SettingModal
         open={open}
         GetCustomWordList={GetCustomWordList}
         handleClose={handleClose}
       />
-
-      {wordsToType}
-
       <Button
         variant="contained"
         size="large"
@@ -54,6 +64,6 @@ export const Home = () => {
       >
         Start Typing
       </Button>
-    </div>
+    </Grid>
   );
 };

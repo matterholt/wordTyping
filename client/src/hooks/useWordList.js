@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { savedWordTemp } from "../assets/savedWordsTemp";
 import { RandomWord } from "../helpers/randomWordList";
 
-function useRandomWordList() {
+function useWordList() {
   const [wordsToType, setWordsToType] = useState([]);
 
   function GetCustomWordList(numberOfWords) {
@@ -18,4 +18,4 @@ function useRandomWordList() {
   return { wordsToType, GetCustomWordList };
 }
 
-export { useRandomWordList };
+export { useWordList };
