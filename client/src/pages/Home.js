@@ -5,16 +5,13 @@ import { makeStyles } from "@material-ui/core/styles";
 
 import Header from "../components/Header";
 import Setting from "../components/Setting";
+import SettingInd from "../components/settingindicator";
 
 import { useWordList } from "../hooks/useWordList";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     height: "100vh",
-  },
-  infoSettings: {
-    color: theme.palette.info.dark,
-    fontWeight: 900,
   },
 }));
 
@@ -47,13 +44,7 @@ export const Home = () => {
   }
 
   return (
-    <Grid
-      className={classes.root}
-      container
-      direction="column"
-      justify="space-evenly"
-      alignItems="center"
-    >
+    <Grid className={classes.root} container direction="column">
       <Header />
 
       <Typography variant="body1">Start Learning how to type words</Typography>
@@ -66,10 +57,8 @@ export const Home = () => {
       />
 
       <Typography variant="h6">
-        Practice Typing,{" "}
-        <span className={classes.infoSettings}>{numberOfWords}</span> words in
-        from a <span className={classes.infoSettings}>{wordList}</span> word
-        list
+        Practice Typing, <SettingInd>{numberOfWords}</SettingInd> words in from
+        a <SettingInd>{wordList}</SettingInd> word list
       </Typography>
 
       <Button
