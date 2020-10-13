@@ -9,14 +9,7 @@ import SettingInd from "../components/settingindicator";
 
 import { useWordList } from "../hooks/useWordList";
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    height: "100vh",
-  },
-}));
-
 export const Home = () => {
-  const classes = useStyles();
   const { wordsToType, GetCustomWordList } = useWordList();
   const [wordList, setWordList] = useState("Random");
   const [numberOfWords, seNumberOfWords] = useState(5);
@@ -44,7 +37,7 @@ export const Home = () => {
   }
 
   return (
-    <Grid className={classes.root} container direction="column">
+    <Grid container direction="column">
       <Header />
 
       <Typography variant="body1">Start Learning how to type words</Typography>
