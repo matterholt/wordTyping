@@ -9,11 +9,13 @@ import {
 
 export const WordListSetting = ({ wordList, updateWordList }) => {
   return (
-    <FormControl component="fieldset" color="primary">
-      <FormLabel component="legend">Select Word List </FormLabel>
+    <FormControl component="fieldset">
+      <FormLabel component="legend">Choose word list</FormLabel>
       <RadioGroup
         name="wordList"
-        aria
+        row
+        aria-label="position"
+        defaultValue="top"
         value={wordList}
         onChange={updateWordList}
       >

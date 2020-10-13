@@ -17,8 +17,8 @@ export const Home = () => {
   const updateWordList = (e) => {
     setWordList(e.target.value);
   };
-  const updateWordCount = (e) => {
-    seNumberOfWords(e.target.value);
+  const updateWordCount = (event, newValue) => {
+    seNumberOfWords(newValue);
   };
 
   /*
